@@ -63,7 +63,7 @@ def validate(
         logger.info(f"Object is None. Type: {type(obj).__name__}, {obj=}, {is_not_None=}")
         status_check = False
     else:
-        logger.info(f"Object is not None. Type: {type(obj).__name__}, {obj=}, {is_not_None=}")
+        logger.info(f"Object is not None. Type: {type(obj).__name__}, {is_not_None=}")
 
     # Priority 2: Emptiness check
     if is_not_empty:
@@ -74,7 +74,7 @@ def validate(
                 logger.info(f"Object is empty. Type: {type(obj).__name__}, {obj=}, {is_not_empty=}")
                 status_check = False
             else:
-                logger.info(f"Object is not empty. Type: {type(obj).__name__}, {obj=}, {is_not_empty=}")
+                logger.info(f"Object is not empty. Type: {type(obj).__name__}, {is_not_empty=}")
 
     if not status_check:
         return False
