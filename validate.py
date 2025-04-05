@@ -80,65 +80,75 @@ def validate(
         return False
 
     # Priority 3: Type checks (run only if enabled)
-    if dict_instance and not isinstance(obj, dict):
-        logger.info(f"Object is not dict. Type: {type(obj).__name__}, {obj=}, {dict_instance=}")
-        status_check = False
-    else:
-        logger.info(f"Object is dict. Type: {type(obj).__name__}, {obj=}, {dict_instance=}")
+    if dict_instance:
+        if not isinstance(obj, dict):
+            logger.info(f"Object is not dict. Type: {type(obj).__name__}, {obj=}, {dict_instance=}")
+            status_check = False
+        else:
+            logger.info(f"Object is dict. Type: {type(obj).__name__}, {obj=}, {dict_instance=}")
 
-    if list_instance and not isinstance(obj, list):
-        logger.info(f"Object is not list. Type: {type(obj).__name__}, {obj=}, {list_instance=}")
-        status_check = False
-    else:
-        logger.info(f"Object is list. Type: {type(obj).__name__}, {obj=}, {list_instance=}")
+    if list_instance:
+        if not isinstance(obj, list):
+            logger.info(f"Object is not list. Type: {type(obj).__name__}, {obj=}, {list_instance=}")
+            status_check = False
+        else:
+            logger.info(f"Object is list. Type: {type(obj).__name__}, {obj=}, {list_instance=}")
 
-    if tuple_instance and not isinstance(obj, tuple):
-        logger.info(f"Object is not tuple. Type: {type(obj).__name__}, {obj=}, {tuple_instance=}")
-        status_check = False
-    else:
-        logger.info(f"Object is tuple. Type: {type(obj).__name__}, {obj=}, {tuple_instance=}")
+    if tuple_instance:
+        if not isinstance(obj, tuple):
+            logger.info(f"Object is not tuple. Type: {type(obj).__name__}, {obj=}, {tuple_instance=}")
+            status_check = False
+        else:
+            logger.info(f"Object is tuple. Type: {type(obj).__name__}, {obj=}, {tuple_instance=}")
 
-    if str_instance and not isinstance(obj, str):
-        logger.info(f"Object is not string. Type: {type(obj).__name__}, {obj=}, {str_instance=}")
-        status_check = False
-    else:
-        logger.info(f"Object is string. Type: {type(obj).__name__}, {obj=}, {str_instance=}")
+    if str_instance:
+        if not isinstance(obj, str):
+            logger.info(f"Object is not string. Type: {type(obj).__name__}, {obj=}, {str_instance=}")
+            status_check = False
+        else:
+            logger.info(f"Object is string. Type: {type(obj).__name__}, {obj=}, {str_instance=}")
 
-    if int_instance and not isinstance(obj, int):
-        logger.info(f"Object is not integer. Type: {type(obj).__name__}, {obj=}, {int_instance=}")
-        status_check = False
-    else:
-        logger.info(f"Object is integer. Type: {type(obj).__name__}, {obj=}, {int_instance=}")
+    if int_instance:
+        if not isinstance(obj, int):
+            logger.info(f"Object is not integer. Type: {type(obj).__name__}, {obj=}, {int_instance=}")
+            status_check = False
+        else:
+            logger.info(f"Object is integer. Type: {type(obj).__name__}, {obj=}, {int_instance=}")
 
-    if float_instance and not isinstance(obj, float):
-        logger.info(f"Object is not float. Type: {type(obj).__name__}, {obj=}, {float_instance=}")
-        status_check = False
-    else:
-        logger.info(f"Object is float. Type: {type(obj).__name__}, {obj=}, {float_instance=}")
+    if float_instance:
+        if not isinstance(obj, float):
+            logger.info(f"Object is not float. Type: {type(obj).__name__}, {obj=}, {float_instance=}")
+            status_check = False
+        else:
+            logger.info(f"Object is float. Type: {type(obj).__name__}, {obj=}, {float_instance=}")
 
-    if bool_instance and not isinstance(obj, bool):
-        logger.info(f"Object is not bool. Type: {type(obj).__name__}, {obj=}, {bool_instance=}")
-        status_check = False
-    else:
-        logger.info(f"Object is bool. Type: {type(obj).__name__}, {obj=}, {bool_instance=}")
+    if bool_instance:
+        if not isinstance(obj, bool):
+            logger.info(f"Object is not bool. Type: {type(obj).__name__}, {obj=}, {bool_instance=}")
+            status_check = False
+        else:
+            logger.info(f"Object is bool. Type: {type(obj).__name__}, {obj=}, {bool_instance=}")
 
-    if pd_dataframe_instance and not isinstance(obj, pd.DataFrame):
-        logger.info(f"Object is not pd.Dataframe. Type: {type(obj).__name__}, {obj=}, {pd_dataframe_instance=}")
-        status_check = False
-    else:
-        logger.info(f"Object is pd.Dataframe. Type: {type(obj).__name__}, {obj=}, {pd_dataframe_instance=}")
+    if pd_dataframe_instance:
+        if not isinstance(obj, pd.DataFrame):
+            logger.info(f"Object is not pd.Dataframe. Type: {type(obj).__name__}, {obj=}, {pd_dataframe_instance=}")
+            status_check = False
+        else:
+            logger.info(f"Object is pd.Dataframe. Type: {type(obj).__name__}, {obj=}, {pd_dataframe_instance=}")
 
-    if pd_series_instance and not isinstance(obj, pd.Series):
-        logger.info(f"Object is not pd.Series. Type: {type(obj).__name__}, {obj=}, {pd_series_instance=}")
-        status_check = False
-    else:
-        logger.info(f"Object is pd.Series. Type: {type(obj).__name__}, {obj=}, {pd_series_instance=}")
+    if pd_series_instance:
+        if not isinstance(obj, pd.Series):
+            logger.info(f"Object is not pd.Series. Type: {type(obj).__name__}, {obj=}, {pd_series_instance=}")
+            status_check = False
+        else:
+            logger.info(f"Object is pd.Series. Type: {type(obj).__name__}, {obj=}, {pd_series_instance=}")
 
-    if is_numeric and not isinstance(obj, (int, float)):
-        logger.info(f"Object is not numeric. Type: {type(obj).__name__}, {obj=}, {is_numeric=}")
-        status_check = False
-    else:
-        logger.info(f"Object is numeric. Type: {type(obj).__name__}, {obj=}, {is_numeric=}")
+    if is_numeric:
+        if not isinstance(obj, (int, float)):
+            logger.info(f"Object is not numeric. Type: {type(obj).__name__}, {obj=}, {is_numeric=}")
+            status_check = False
+        else:
+            logger.info(f"Object is numeric. Type: {type(obj).__name__}, {obj=}, {is_numeric=}")
     return status_check
 
 # Example usage:
