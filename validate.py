@@ -131,23 +131,23 @@ def validate(
 
     if pd_dataframe_instance:
         if not isinstance(obj, pd.DataFrame):
-            logger.info(f"Object is not pd.DataFrame. Type: {type(obj).__name__}, {obj=}, {pd_dataframe_instance=}")
+            logger.info(f"Object is not pd.DataFrame. Type: {type(obj).__name__}, {pd_dataframe_instance=}")
             status_check = False
         elif obj.empty:
-            logger.info(f"Object is pd.DataFrame but empty. Type: {type(obj).__name__}, {obj=}")
+            logger.info(f"Object is pd.DataFrame but empty. Type: {type(obj).__name__}, head:\n{obj.head()}")
             status_check = False
         else:
-            logger.info(f"Object is non-empty pd.DataFrame. Type: {type(obj).__name__}, {obj=}")
+            logger.info(f"Object is non-empty pd.DataFrame. Type: {type(obj).__name__}, head:\n{obj.head()}")
 
     if pd_series_instance:
         if not isinstance(obj, pd.Series):
-            logger.info(f"Object is not pd.Series. Type: {type(obj).__name__}, {obj=}, {pd_series_instance=}")
+            logger.info(f"Object is not pd.Series. Type: {type(obj).__name__}, {pd_series_instance=}")
             status_check = False
         elif obj.empty:
-            logger.info(f"Object is pd.Series but empty. Type: {type(obj).__name__}, {obj=}")
+            logger.info(f"Object is pd.Series but empty. Type: {type(obj).__name__}, head:\n{obj.head()}")
             status_check = False
         else:
-            logger.info(f"Object is non-empty pd.Series. Type: {type(obj).__name__}, {obj=}")
+            logger.info(f"Object is non-empty pd.Series. Type: {type(obj).__name__}, head:\n{obj.head()}")
 
     if is_numeric:
         if not isinstance(obj, (int, float)):
