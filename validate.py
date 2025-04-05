@@ -5,7 +5,9 @@
 import os
 import sys
 import asyncio
+import numbers
 import pandas as pd
+import numpy as np
 from typing import Any, Optional
 
 # Third-party libraries
@@ -149,12 +151,14 @@ def validate(
         else:
             logger.info(f"Object is non-empty pd.Series. Type: {type(obj).__name__}, head:\n{obj.head()}")
 
+
     if is_numeric:
-        if not isinstance(obj, (int, float)):
-            logger.info(f"Object is not numeric. Type: {type(obj).__name__}, {obj=}, {is_numeric=}")
+        if not isinstance(obj, numbers.Number) or isinstance(obj, bool) or not np.isfinite(obj):
+            logger.info(f"Object is not valid numeric. Type: {type(obj).__name__}, {obj=}, {is_numeric=}")
             status_check = False
         else:
-            logger.info(f"Object is numeric. Type: {type(obj).__name__}, {obj=}, {is_numeric=}")
+            logger.info(f"Object is finite numeric. Type: {type(obj).__name__}, {obj=}, {is_numeric=}")
+
     return status_check
 
 # Example usage:
