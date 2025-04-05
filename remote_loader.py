@@ -40,7 +40,7 @@ def remote_import(user: str, repo: str, module: str, branch="main"):
 # Example usage
 # Attempt to load the remote module
 try:
-    validate = remote_import("suresh-utils", "pytools", "validate", branch="main")
+    validate = remote_import("local-utils", "pytools", "validate", branch="main")
 except ImportError:
     # Fallback to local import if remote fails
     from local_utils import validate  # type: ignore
