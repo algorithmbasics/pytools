@@ -86,3 +86,44 @@ def validate(
         return False
 
     return True
+
+
+# Example usage:
+if __name__ == "__main__":
+    # Validate a dictionary
+    print(validate({"key": "value"}, dict_instance=True))  # True
+
+    # Validate a list
+    print(validate([1, 2, 3], list_instance=True))  # True
+
+    # Validate a string
+    print(validate("Hello", str_instance=True))  # True
+
+    # Validate an integer
+    print(validate(42, int_instance=True))  # True
+
+    # Validate a float
+    print(validate(3.14, float_instance=True))  # True
+
+    # Validate a boolean
+    print(validate(True, bool_instance=True))  # True
+
+    # Validate a non-empty string
+    print(validate("Hello", str_instance=True, is_not_empty=True))  # True
+
+    # Validate an empty string
+    print(validate("", str_instance=True, is_not_empty=True))  # False
+
+    # Validate a numeric value
+    print(validate(5, int_instance=True, is_numeric=True))  # True
+
+    # Validate a tuple
+    print(validate((1, 2), tuple_instance=True))  # True
+
+    # Validate a pandas DataFrame
+    df = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
+    print(validate(df, pd_dataframe_instance=True))  # True
+
+    # Validate a pandas Series
+    series = pd.Series([1, 2, 3])
+    print(validate(series, pd_series_instance=True))  # True
