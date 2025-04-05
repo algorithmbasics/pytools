@@ -54,9 +54,11 @@ def validate(
     Returns:
         bool: True if all validations pass. False otherwise.
     """
+    logger = get_logger()
 
     # Priority 1: Null check
     if is_not_None and obj is None:
+        logger.error(f"Object is None. {obj=}, {is_not_None=}")
         return False
 
     # Priority 2: Emptiness check
@@ -65,30 +67,40 @@ def validate(
             return False
         if hasattr(obj, '__len__'):
             if len(obj) == 0:
+                logger.error(f"Object is empty. {obj=}, {is_not_empty=}")
                 return False
 
     # Priority 3: Type checks (run only if enabled)
     if dict_instance and not isinstance(obj, dict):
+        logger.error(f"Object is not dict. {obj=}, {dict_instance=}")
         return False
     if list_instance and not isinstance(obj, list):
+        logger.error(f"Object is not list. {obj=}, {list_instance=}")
         return False
     if tuple_instance and not isinstance(obj, tuple):
+        logger.error(f"Object is not tuple. {obj=}, {tuple_instance=}")
         return False
     if str_instance and not isinstance(obj, str):
+        logger.error(f"Object is not string. {obj=}, {str_instance=}")
         return False
     if int_instance and not isinstance(obj, int):
+        logger.error(f"Object is not integer. {obj=}, {int_instance=}")
         return False
     if float_instance and not isinstance(obj, float):
+        logger.error(f"Object is not float. {obj=}, {float_instance=}")
         return False
     if bool_instance and not isinstance(obj, bool):
+        logger.error(f"Object is not bool. {obj=}, {bool_instance=}")
         return False
     if pd_dataframe_instance and not isinstance(obj, pd.DataFrame):
+        logger.error(f"Object is not pd.Dataframe. {obj=}, {pd_dataframe_instance=}")
         return False
     if pd_series_instance and not isinstance(obj, pd.Series):
+        logger.error(f"Object is not pd.Series. {obj=}, {pd_series_instance=}")
         return False
     if is_numeric and not isinstance(obj, (int, float)):
+        logger.error(f"Object is not numeric. {obj=}, {is_numeric=}")
         return False
-
     return True
 
 
